@@ -20,25 +20,25 @@
             .no-print {
                 display: none !important;
             }
-            /* Reset root and body margins for printing */
+            /* 인쇄 시 루트 및 바디 여백 제거 */
             #root, body {
                 margin: 0 !important;
                 padding: 0 !important;
             }
-            /* Scaled container for A4 landscape */
+            /* 보고서 컨테이너: 인쇄 시 배경과 분리되지 않도록 투명/백색 처리 및 그림자 제거 */
             .print-container {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 297mm !important;
                 height: 210mm !important;
-                padding: 8mm !important;
+                padding: 5mm !important; /* 여백 소폭 축소 */
                 margin: 0 !important;
                 border: none !important;
                 box-shadow: none !important;
-                /* Apply scaling to fit a wide report into A4 landscape width */
-                /* Scale factor 0.85 is often a sweet spot for 1200px designs to fit 297mm */
-                transform: scale(0.85);
+                background-color: white !important;
+                /* 1200px 디자인을 A4 가로 너비에 맞게 최적화 */
+                transform: scale(0.88);
                 transform-origin: top left;
             }
         }
