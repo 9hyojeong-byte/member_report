@@ -7,43 +7,39 @@
     <title>Report Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 기본 인쇄 설정 */
         @media print {
             @page {
                 size: A4 landscape;
-                margin: 0; /* 용지 여백 제거 (컨테이너에서 제어) */
+                margin: 0;
             }
-
             body {
                 background-color: white !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
-
             .no-print {
                 display: none !important;
             }
-
-            /* 보고서 컨테이너 최적화 */
+            /* Reset root and body margins for printing */
+            #root, body {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            /* Scaled container for A4 landscape */
             .print-container {
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 297mm !important; /* A4 가로 너비 */
-                height: 210mm !important; /* A4 가로 높이 */
-                padding: 10mm !important;
+                width: 297mm !important;
+                height: 210mm !important;
+                padding: 8mm !important;
                 margin: 0 !important;
                 border: none !important;
                 box-shadow: none !important;
-                /* 사용자가 언급한 58% 느낌을 100%에서 구현하기 위한 스케일링 조정 */
-                /* 원래 1200px 기준으로 작성된 내용을 A4 가로 너비에 맞게 압축 */
-                transform: scale(0.92); 
+                /* Apply scaling to fit a wide report into A4 landscape width */
+                /* Scale factor 0.85 is often a sweet spot for 1200px designs to fit 297mm */
+                transform: scale(0.85);
                 transform-origin: top left;
-            }
-
-            /* 테이블 폰트 및 간격 미세 조정 */
-            table {
-                page-break-inside: avoid;
             }
         }
     </style>
