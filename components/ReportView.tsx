@@ -142,8 +142,9 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
   const weekLabel = weekNum ? `${weekNum}주차` : "실적";
 
   return (
-    <div className="bg-gray-100 min-h-screen py-6 no-print">
-      <div className="max-w-6xl mx-auto px-4 mb-4 flex justify-between items-center">
+    <div className="bg-gray-100 min-h-screen py-4 print:bg-white print:py-0">
+      {/* UI 컨트롤 영역: 인쇄 시 숨김 */}
+      <div className="max-w-6xl mx-auto px-4 mb-4 flex justify-between items-center no-print">
         <button 
           onClick={onBack}
           className="px-4 py-2 bg-white border border-gray-300 rounded text-sm font-medium hover:bg-gray-50 transition-colors shadow-sm"
@@ -163,23 +164,24 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
         </div>
       </div>
 
-      <div className="print-container max-w-[1140px] mx-auto p-8 bg-white font-sans text-gray-900 shadow-2xl border border-gray-200">
-        <div className="text-center mb-4">
+      {/* 보고서 본문 영역: 인쇄 시 스타일 재정의됨 */}
+      <div className="print-container max-w-[1140px] mx-auto p-6 bg-white font-sans text-gray-900 shadow-2xl border border-gray-200 print:shadow-none print:border-none">
+        <div className="text-center mb-3">
           <h1 className="text-xl font-black border-b-2 border-black inline-block pb-0.5 tracking-tight">사이트별 회원 현황 _ {yearMonth}</h1>
         </div>
 
-        <div className="flex items-center mb-3">
-          <div className="bg-gray-800 text-white px-4 py-0.5 text-[10px] font-bold mr-3 rounded-sm">{weekLabel}</div>
-          <div className="text-[10px] font-bold text-gray-600">{data.metadata.period}</div>
+        <div className="flex items-center mb-2">
+          <div className="bg-gray-800 text-white px-3 py-0.5 text-[9px] font-bold mr-2 rounded-sm">{weekLabel}</div>
+          <div className="text-[9px] font-bold text-gray-600">{data.metadata.period}</div>
         </div>
 
-        <div className="overflow-x-auto mb-4">
-          <table className="w-full border-collapse border border-gray-400 text-[9px] text-center leading-[1.1]">
+        <div className="overflow-x-auto mb-3">
+          <table className="w-full border-collapse border border-gray-400 text-[8.5px] text-center leading-[1.05]">
             <thead>
               <tr className="bg-gray-100">
                 <th rowSpan={3} className="border border-gray-400 w-40 bg-gray-200/50">구분</th>
-                <th colSpan={7} className="border border-gray-400 bg-orange-100/50 py-1 text-orange-800">교재 및 온라인 서비스</th>
-                <th colSpan={3} className="border border-gray-400 bg-purple-100/50 py-1 text-purple-800">교과서</th>
+                <th colSpan={7} className="border border-gray-400 bg-orange-100/50 py-0.5 text-orange-800">교재 및 온라인 서비스</th>
+                <th colSpan={3} className="border border-gray-400 bg-purple-100/50 py-0.5 text-purple-800">교과서</th>
                 <th rowSpan={3} className="border border-gray-400 w-16 font-bold bg-gray-100">소계 (A)</th>
               </tr>
               <tr className="bg-orange-50/30">
@@ -272,8 +274,8 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
           </table>
         </div>
 
-        <div className="overflow-x-auto mb-4">
-          <table className="w-full border-collapse border border-gray-400 text-[9px] text-center leading-[1.1]">
+        <div className="overflow-x-auto mb-3">
+          <table className="w-full border-collapse border border-gray-400 text-[8.5px] text-center leading-[1.05]">
             <thead>
               <tr className="bg-gray-100">
                 <th rowSpan={3} className="border border-gray-400 w-40 bg-gray-200/50">구분</th>
@@ -296,7 +298,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-400 text-left px-2 py-0.5 font-bold whitespace-nowrap"><span className="inline-block w-2.5 h-2.5 bg-yellow-400 rounded-full text-[7px] text-center leading-[10px] font-bold mr-1 align-middle">1</span> 전체 가입회원수 (명)</td>
+                <td className="border border-gray-400 text-left px-2 py-0.5 font-bold whitespace-nowrap"><span className="inline-block w-2 h-2 bg-yellow-400 rounded-full text-[6px] text-center leading-[8px] font-bold mr-1 align-middle">1</span> 전체 가입회원수 (명)</td>
                 {table2Cols.map((path, i) => (
                   <ReportCell id={`t2-r1-c${i}`} key={i} value={getVal(path.replace(/\/\d+/g, '/1'))} isBold />
                 ))}
@@ -305,7 +307,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
                 <td className="border border-gray-400 bg-blue-50/50"></td>
               </tr>
               <tr>
-                <td className="border border-gray-400 text-left px-2 py-0.5 font-bold whitespace-nowrap"><span className="inline-block w-2.5 h-2.5 bg-yellow-400 rounded-full text-[7px] text-center leading-[10px] font-bold mr-1 align-middle">2</span> 전체 가입유효회원수 (명)</td>
+                <td className="border border-gray-400 text-left px-2 py-0.5 font-bold whitespace-nowrap"><span className="inline-block w-2 h-2 bg-yellow-400 rounded-full text-[6px] text-center leading-[8px] font-bold mr-1 align-middle">2</span> 전체 가입유효회원수 (명)</td>
                 {table2Cols.map((path, i) => (
                   <ReportCell id={`t2-r2-c${i}`} key={i} value={getVal(path.replace(/\/\d+/g, '/2'))} isBold />
                 ))}
@@ -314,7 +316,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
                 <td className="border border-gray-400 bg-blue-50/50"></td>
               </tr>
               <tr className="bg-green-50">
-                <td className="border border-gray-400 text-left px-2 py-0.5 font-bold"><span className="inline-block w-2.5 h-2.5 bg-yellow-400 rounded-full text-[7px] text-center leading-[10px] font-bold mr-1 align-middle">3</span> 휴면 회원률 (%)</td>
+                <td className="border border-gray-400 text-left px-2 py-0.5 font-bold"><span className="inline-block w-2 h-2 bg-yellow-400 rounded-full text-[6px] text-center leading-[8px] font-bold mr-1 align-middle">3</span> 휴면 회원률 (%)</td>
                 {table2Cols.map((path, i) => {
                   const v1 = getVal(path.replace(/\/\d+/g, '/1'));
                   const v2 = getVal(path.replace(/\/\d+/g, '/2'));
@@ -336,7 +338,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
                 <td className="border border-gray-400 bg-blue-100/30"></td>
               </tr>
               <tr className="bg-green-50 font-bold">
-                <td className="border border-gray-400 text-left px-2 py-0.5 font-bold"><span className="inline-block w-2.5 h-2.5 bg-yellow-400 rounded-full text-[7px] text-center leading-[10px] font-bold mr-1 align-middle">8</span> 신규 가입회원 수 (명)</td>
+                <td className="border border-gray-400 text-left px-2 py-0.5 font-bold"><span className="inline-block w-2 h-2 bg-yellow-400 rounded-full text-[6px] text-center leading-[8px] font-bold mr-1 align-middle">8</span> 신규 가입회원 수 (명)</td>
                 {table2Cols.map((path, i) => (
                   <ReportCell id={`t2-r8-c${i}`} key={i} value={getVal(path.replace(/\/\d+/g, '/6'))} className="text-red-600" />
                 ))}
@@ -348,14 +350,14 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
           </table>
         </div>
 
-        <div className="text-[8px] space-y-0.5 mb-3 text-gray-500 italic leading-normal">
+        <div className="text-[7.5px] space-y-0.5 mb-2 text-gray-500 italic leading-snug">
           <p>* 기타 : 서비스종료, 개편 이전, 헬로이티 등 기타 사이트 포함 집계 / <span className="text-red-600 font-bold">NE B&G 분리 집계(2022년 12월 2주차 적용)</span></p>
           <p>* 클래스카드를 통해 가입한 NE Tutor 통계, 2023년 8월 4주차 부터 반영</p>
         </div>
 
         <div className="flex justify-between items-start">
-          <div className="w-48">
-            <table className="w-full border-collapse border border-black text-[8px]">
+          <div className="w-44">
+            <table className="w-full border-collapse border border-black text-[7.5px]">
               <thead>
                 <tr className="bg-yellow-400">
                   <th colSpan={2} className="border border-black p-0.5 text-left font-bold">산출식</th>
@@ -368,7 +370,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
               </tbody>
             </table>
           </div>
-          <div className="text-[8px] text-gray-400 font-bold">Membership Report Generator System</div>
+          <div className="text-[7.5px] text-gray-300 font-bold italic">Generated by Membership Report System</div>
         </div>
       </div>
     </div>
