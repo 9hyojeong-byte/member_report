@@ -8,40 +8,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @media print {
-            @page {
-                size: A4 landscape;
-                margin: 0;
-            }
-            /* 인쇄 시 배경색을 완전히 백색으로 통일하여 경계 제거 */
-            html, body {
-                background-color: white !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
             .no-print {
                 display: none !important;
             }
-            #root {
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-            /* 보고서 컨테이너: 인쇄 시 절대 위치로 최상단 고정 */
-            .print-container {
-                position: absolute !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 297mm !important;
-                height: 210mm !important;
-                padding: 4mm !important; /* 여백 추가 축소 */
-                margin: 0 !important;
-                border: none !important;
-                box-shadow: none !important;
+            body {
                 background-color: white !important;
-                /* 사용자의 58% 배율 피드백을 반영하여 전체적인 가독성을 위한 스케일링 */
-                transform: scale(0.9); 
-                transform-origin: top left;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .print-container {
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                max-width: none !important;
             }
         }
     </style>
@@ -59,6 +38,7 @@
 </head>
 <body class="bg-gray-50 min-h-screen">
     <div id="root"></div>
+    <!-- Vite/Vercel 빌드를 위한 엔트리 포인트 명시 -->
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
