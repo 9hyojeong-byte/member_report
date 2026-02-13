@@ -1,0 +1,5 @@
+{
+  "name": "Data-to-Report Generator",
+  "description": "A web application that converts pasted table data into professional HTML reports with automated calculations and print-ready formatting.",
+  "requestFramePermissions": []
+}
