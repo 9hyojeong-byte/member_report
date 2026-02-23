@@ -170,7 +170,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
 
       <div className="print-container max-w-[1200px] mx-auto p-12 bg-white font-sans text-gray-900 shadow-2xl border border-gray-200">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-black border-b-4 border-black inline-block pb-2 tracking-tight">사이트별 회원 현황 _ {yearMonth}</h1>
+          <h1 className="text-2xl font-black border-b-3 border-black inline-block pb-2 tracking-tight">사이트별 회원 현황 _ {yearMonth}</h1>
         </div>
 
         <div className="flex items-center mb-6">
@@ -473,36 +473,12 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
         <div className="text-[10.5px] space-y-1.5 mb-8 text-gray-500 italic leading-snug">
           <p>* 기타 : 서비스종료, 개편 이전, 헬로이티 등 기타 사이트 포함 집계 / <span className="text-red-600 font-bold">NE B&G 분리 집계(2022년 12월 2주차 적용)</span></p>
           <p>* 클래스카드를 통해 가입한 NE Tutor 통계, 2023년 8월 4주차 부터 반영</p>
-          <p>* NE Teens Up 누적 전체회원의 경우, 이전 Teens Up(출판사업+온라인사업) 회원수가 포함된 수치</p>
+          <p>* ③(휴면 회원률) : (①-②)/①</p>
+          <p>* ⑥(탈퇴율) : (④+⑤)/(①+④+⑤)</p>
+          <p>* ⑦(순수이탈률) : ⑤/(①+④+⑤)</p>
+          <p>* ⑨(신규가입률) : ⑧/①</p>
         </div>
-
-        <div className="w-56">
-          <table className="w-full border-collapse border border-black text-[10.5px]">
-            <thead>
-              <tr className="bg-yellow-400">
-                <th colSpan={2} className="border border-black p-1.5 text-left font-bold">산출식</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white">
-              <tr>
-                <td className="border border-black p-1.5 font-medium">③(휴면 회원률)</td>
-                <td className="border border-black p-1.5">(①-②)/①</td>
-              </tr>
-              <tr>
-                <td className="border border-black p-1.5 font-medium">⑥(탈퇴율)</td>
-                <td className="border border-black p-1.5">(④+⑤)/(①+④+⑤)</td>
-              </tr>
-              <tr>
-                <td className="border border-black p-1.5 font-medium">⑦(순수이탈률)</td>
-                <td className="border border-black p-1.5">⑤/(①+④+⑤)</td>
-              </tr>
-              <tr>
-                <td className="border border-black p-1.5 font-medium">⑨(신규가입률)</td>
-                <td className="border border-black p-1.5">⑧/①</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        
       </div>
     </div>
   );
