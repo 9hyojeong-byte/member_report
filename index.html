@@ -8,20 +8,74 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @media print {
+            /* Hide UI elements */
             .no-print {
                 display: none !important;
             }
+
+            /* Preserve colors and backgrounds */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* Reset body for print */
             body {
                 background-color: white !important;
                 padding: 0 !important;
                 margin: 0 !important;
+                width: 210mm;
+                height: 297mm;
             }
+
+            /* Configure page margins */
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            /* Main report container styling for print */
             .print-container {
-                padding: 0 !important;
+                padding: 10mm !important; /* Reduced margin to maximize space */
                 margin: 0 !important;
                 width: 100% !important;
                 max-width: none !important;
+                box-shadow: none !important;
+                border: none !important;
+                
+                /* Scaling to fit on one page:
+                   If your content is too long, adjust the scale value below.
+                   'zoom' works in Chrome/Safari, 'transform' is more standard but needs origin adjustment.
+                */
+                zoom: 0.9; /* Adjust this value (e.g., 0.85, 0.95) to fit your specific data on one page */
             }
+
+            /* Prevent page breaks inside the report content */
+            .print-container > * {
+                page-break-inside: avoid;
+            }
+
+            /* Ensure tables fit width and look professional */
+            table {
+                width: 100% !important;
+                table-layout: fixed;
+                border-collapse: collapse !important;
+            }
+            
+            th, td {
+                border: 0.5pt solid #999 !important;
+            }
+            
+            /* Adjust font sizes for print clarity and space saving */
+            h1 { font-size: 20pt !important; margin-bottom: 5mm !important; }
+            .text-sm { font-size: 8.5pt !important; }
+            .text-xs { font-size: 7.5pt !important; }
+            
+            /* Remove extra spacing that might cause overflow */
+            .mb-10 { margin-bottom: 5mm !important; }
+            .mb-8 { margin-bottom: 4mm !important; }
+            .mb-6 { margin-bottom: 3mm !important; }
+            .py-10 { padding-top: 0 !important; padding-bottom: 0 !important; }
         }
     </style>
 <script type="importmap">
