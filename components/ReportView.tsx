@@ -168,12 +168,12 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
         </div>
       </div>
 
-      <div className="print-container max-w-[1200px] mx-auto p-12 bg-white font-sans text-gray-900 shadow-2xl border border-gray-200">
-        <div className="text-center mb-10">
+      <div className="print-container max-w-[1200px] mx-auto p-7 bg-white font-sans text-gray-900 shadow-2xl border border-gray-200">
+        <div className="text-center mb-5">
           <h1 className="text-2xl font-black border-b-3 border-black inline-block pb-2 tracking-tight">사이트별 회원 현황 _ {yearMonth}</h1>
         </div>
 
-        <div className="flex items-center mb-6">
+        <div className="flex items-center mb-3">
           <div className="bg-gray-800 text-white px-8 py-1.5 text-sm font-bold mr-4 rounded-sm">{weekLabel}</div>
           <div className="text-sm font-bold text-gray-600">{data.metadata.period}</div>
         </div>
@@ -478,7 +478,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
           <p>* ⑦(순수이탈률) : ⑤/(①+④+⑤)</p>
           <p>* ⑨(신규가입률) : ⑧/①</p>
         </div>
-        
+
       </div>
     </div>
   );
