@@ -70,7 +70,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
     return (
       <td 
         onClick={() => toggleHighlight(id)}
-        className={`border border-gray-400 cursor-pointer transition-colors transition-shadow ${
+        className={`border border-gray-400 cursor-pointer transition-colors transition-shadow py-0.5 ${
           isHighlighted ? 'bg-yellow-200 shadow-inner' : 'hover:bg-blue-50'
         } ${isBold ? 'font-bold' : ''} ${className}`}
       >
@@ -148,7 +148,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
 
   return (
     <div className="bg-gray-100 min-h-screen py-10">
-      <div className="max-w-[696px] mx-auto px-4 mb-6 flex justify-between items-center no-print">
+      <div className="max-w-6xl mx-auto px-4 mb-6 flex justify-between items-center no-print">
         <button 
           onClick={onBack}
           className="px-4 py-2 bg-white border border-gray-300 rounded text-sm font-medium hover:bg-gray-50 transition-colors shadow-sm"
@@ -168,7 +168,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
         </div>
       </div>
 
-      <div className="print-container max-w-[1200px] mx-auto p-12 bg-white font-sans text-gray-900 shadow-2xl border border-gray-200 origin-top scale-[0.58] mb-[-40%] print:mb-0 print:shadow-none print:border-none">
+      <div className="print-container max-w-[1200px] mx-auto p-12 bg-white font-sans text-gray-900 shadow-2xl border border-gray-200">
         <div className="text-center mb-10">
           <h1 className="text-3xl font-black border-b-4 border-black inline-block pb-2 tracking-tight">사이트별 회원 현황 _ {yearMonth}</h1>
         </div>
@@ -179,50 +179,50 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
         </div>
 
         <div className="overflow-x-auto mb-10">
-          <table className="w-full border-collapse border border-gray-400 text-[10.5px] text-center leading-tight">
+          <table className="w-full border-collapse border border-gray-400 text-[10.5px] text-center leading-[1.1]">
             <thead>
               <tr className="bg-gray-100">
-                <th rowSpan={3} className="border border-gray-400 w-44 bg-gray-200/50">구분</th>
-                <th colSpan={7} className="border border-gray-400 bg-orange-100/50 py-2 text-orange-800">교재 및 온라인 서비스</th>
-                <th colSpan={3} className="border border-gray-400 bg-purple-100/50 py-2 text-purple-800">교과서</th>
-                <th rowSpan={3} className="border border-gray-400 w-20 font-bold bg-gray-100">소계 (A)</th>
+                <th rowSpan={3} className="border border-gray-400 w-44 bg-gray-200/50 py-0.5">구분</th>
+                <th colSpan={7} className="border border-gray-400 bg-orange-100/50 py-0.5 text-orange-800">교재 및 온라인 서비스</th>
+                <th colSpan={3} className="border border-gray-400 bg-purple-100/50 py-0.5 text-purple-800">교과서</th>
+                <th rowSpan={3} className="border border-gray-400 w-20 font-bold bg-gray-100 py-0.5">소계 (A)</th>
               </tr>
               <tr className="bg-orange-50/30">
-                <th colSpan={2} className="border border-gray-400 py-1.5">NE Books</th>
-                <th colSpan={2} className="border border-gray-400 py-1.5">NE Tutor</th>
-                <th rowSpan={2} className="border border-gray-400 w-20">NELT</th>
-                <th colSpan={2} className="border border-gray-400 py-1.5">NE B&G</th>
-                <th colSpan={2} className="border border-gray-400 bg-purple-50/30 py-1.5">NE Teacher</th>
-                <th rowSpan={2} className="border border-gray-400 bg-purple-50/30 w-24">구 사이트<br/>(NE TextBook)</th>
+                <th colSpan={2} className="border border-gray-400 py-0.5">NE Books</th>
+                <th colSpan={2} className="border border-gray-400 py-0.5">NE Tutor</th>
+                <th rowSpan={2} className="border border-gray-400 w-20 py-0.5">NELT</th>
+                <th colSpan={2} className="border border-gray-400 py-0.5">NE B&G</th>
+                <th colSpan={2} className="border border-gray-400 bg-purple-50/30 py-0.5">NE Teacher</th>
+                <th rowSpan={2} className="border border-gray-400 bg-purple-50/30 w-24 py-0.5">구 사이트<br/>(NE TextBook)</th>
               </tr>
               <tr className="bg-orange-50/30">
-                <th className="border border-gray-400 w-20 py-1">PC</th>
-                <th className="border border-gray-400 w-20 py-1">MO</th>
-                <th className="border border-gray-400 w-20 py-1">PC</th>
-                <th className="border border-gray-400 w-20 py-1">MO</th>
-                <th className="border border-gray-400 w-20 py-1">PC</th>
-                <th className="border border-gray-400 w-20 py-1">MO</th>
-                <th className="border border-gray-400 bg-purple-50/30 w-20 py-1">PC</th>
-                <th className="border border-gray-400 bg-purple-50/30 w-20 py-1">MO</th>
+                <th className="border border-gray-400 w-20 py-0.5">PC</th>
+                <th className="border border-gray-400 w-20 py-0.5">MO</th>
+                <th className="border border-gray-400 w-20 py-0.5">PC</th>
+                <th className="border border-gray-400 w-20 py-0.5">MO</th>
+                <th className="border border-gray-400 w-20 py-0.5">PC</th>
+                <th className="border border-gray-400 w-20 py-0.5">MO</th>
+                <th className="border border-gray-400 bg-purple-50/30 w-20 py-0.5">PC</th>
+                <th className="border border-gray-400 bg-purple-50/30 w-20 py-0.5">MO</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-400 text-left px-3 py-2 whitespace-nowrap font-bold">전체 가입회원수_휴면회원포함 (명)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 whitespace-nowrap font-bold">전체 가입회원수_휴면회원포함 (명)</td>
                 {table1Cols.map((path, i) => (
                   <ReportCell key={`t1-r1-c${i}`} id={`t1-r1-c${i}`} value={getVal(path.replace(/\/\d+/g, '/1'))} isBold />
                 ))}
                 <ReportCell id="t1-r1-sub" value={subA1.value} className="bg-gray-50" isBold />
               </tr>
               <tr>
-                <td className="border border-gray-400 text-left px-3 py-2 whitespace-nowrap font-bold">전체 가입유효회원수_휴면회원제외 (명)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 whitespace-nowrap font-bold">전체 가입유효회원수_휴면회원제외 (명)</td>
                 {table1Cols.map((path, i) => (
                   <ReportCell key={`t1-r2-c${i}`} id={`t1-r2-c${i}`} value={getVal(path.replace(/\/\d+/g, '/2'))} isBold />
                 ))}
                 <ReportCell id="t1-r2-sub" value={subA2.value} className="bg-gray-50" isBold />
               </tr>
-              <tr className="h-7 bg-green-50 font-bold">
-                <td className="border border-gray-400 text-left px-3 py-2 font-bold">휴면 회원률 (%)</td>
+              <tr className="bg-green-50 font-bold">
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-bold">휴면 회원률 (%)</td>
                 {table1Cols.map((path, i) => {
                   const v1 = getVal(path.replace(/\/\d+/g, '/1'));
                   const v2 = getVal(path.replace(/\/\d+/g, '/2'));
@@ -237,21 +237,21 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
                 />
               </tr>
               <tr>
-                <td className="border border-gray-400 text-left px-3 py-2 font-medium">휴면계정 탈퇴회원수 (명)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-medium">휴면계정 탈퇴회원수 (명)</td>
                 {table1Cols.map((path, i) => (
                   <ReportCell id={`t1-r4-c${i}`} key={i} value={getVal(path.replace(/\/\d+/g, '/3'))} />
                 ))}
                 <ReportCell id="t1-r4-sub" value={subA3.value} className="bg-gray-50" />
               </tr>
               <tr>
-                <td className="border border-gray-400 text-left px-3 py-2 font-medium">본인 탈퇴회원수 (명)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-medium">본인 탈퇴회원수 (명)</td>
                 {table1Cols.map((path, i) => (
                   <ReportCell id={`t1-r5-c${i}`} key={i} value={getVal(path.replace(/\/\d+/g, '/4'))} />
                 ))}
                 <ReportCell id="t1-r5-sub" value={subA4.value} className="bg-gray-50" />
               </tr>
-              <tr className="h-7">
-                <td className="border border-gray-400 text-left px-3 py-2 font-medium">탈퇴율 (%)</td>
+              <tr>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-medium">탈퇴율 (%)</td>
                 {table1Cols.map((path, i) => {
                   const v1 = getVal(path.replace(/\/\d+/g, '/1'));
                   const v3 = getVal(path.replace(/\/\d+/g, '/3'));
@@ -266,8 +266,8 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
                   className="bg-gray-50 text-gray-500" 
                 />
               </tr>
-              <tr className="h-7">
-                <td className="border border-gray-400 text-left px-3 py-2 font-medium">순수 이탈률 (%)</td>
+              <tr>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-medium">순수 이탈률 (%)</td>
                 {table1Cols.map((path, i) => {
                   const v1 = getVal(path.replace(/\/\d+/g, '/1'));
                   const v3 = getVal(path.replace(/\/\d+/g, '/3'));
@@ -283,14 +283,14 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
                 />
               </tr>
               <tr className="bg-green-50 font-bold">
-                <td className="border border-gray-400 text-left px-3 py-2 font-bold">신규 가입회원 수 (명)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-bold">신규 가입회원 수 (명)</td>
                 {table1Cols.map((path, i) => (
                   <ReportCell id={`t1-r8-c${i}`} key={i} value={getVal(path.replace(/\/\d+/g, '/6'))} className="text-red-600" />
                 ))}
                 <ReportCell id="t1-r8-sub" value={subA6.value} className="text-red-600 bg-green-100/50" />
               </tr>
               <tr className="bg-green-50">
-                <td className="border border-gray-400 text-left px-3 py-2 whitespace-nowrap">신규 가입률 (%)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 whitespace-nowrap">신규 가입률 (%)</td>
                 {table1Cols.map((path, i) => {
                   const v1 = getVal(path.replace(/\/\d+/g, '/1'));
                   const v6 = getVal(path.replace(/\/\d+/g, '/6'));
@@ -309,48 +309,48 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
         </div>
 
         <div className="overflow-x-auto mb-6">
-          <table className="w-full border-collapse border border-gray-400 text-[10.5px] text-center leading-tight">
+          <table className="w-full border-collapse border border-gray-400 text-[10.5px] text-center leading-[1.1]">
             <thead>
               <tr className="bg-gray-100">
-                <th rowSpan={3} className="border border-gray-400 w-44 bg-gray-200/50">구분</th>
-                <th colSpan={5} className="border border-gray-400 py-2 text-blue-900">기타 사업</th>
-                <th rowSpan={3} className="border border-gray-400 w-20 bg-gray-100">소계 (B)</th>
-                <th rowSpan={3} className="border border-gray-400 bg-blue-100/50 w-20 font-bold">총계<br/>(A+B)</th>
-                <th rowSpan={3} className="border border-gray-400 bg-blue-100/50 w-24">전주대비 증감비율</th>
+                <th rowSpan={3} className="border border-gray-400 w-44 bg-gray-200/50 py-0.5">구분</th>
+                <th colSpan={5} className="border border-gray-400 py-0.5 text-blue-900">기타 사업</th>
+                <th rowSpan={3} className="border border-gray-400 w-20 bg-gray-100 py-0.5">소계 (B)</th>
+                <th rowSpan={3} className="border border-gray-400 bg-blue-100/50 w-20 font-bold py-0.5">총계<br/>(A+B)</th>
+                <th rowSpan={3} className="border border-gray-400 bg-blue-100/50 w-24 py-0.5">전주대비 증감비율</th>
               </tr>
               <tr className="bg-gray-50/30">
-                <th colSpan={2} className="border border-gray-400 py-1.5">NE Times</th>
-                <th colSpan={2} className="border border-gray-400 py-1.5">NE클래스</th>
-                <th rowSpan={2} className="border border-gray-400 w-20">기타</th>
+                <th colSpan={2} className="border border-gray-400 py-0.5">NE Times</th>
+                <th colSpan={2} className="border border-gray-400 py-0.5">NE클래스</th>
+                <th rowSpan={2} className="border border-gray-400 w-20 py-0.5">기타</th>
               </tr>
               <tr className="bg-gray-50/30">
-                <th className="border border-gray-400 w-20 py-1">PC</th>
-                <th className="border border-gray-400 w-20 py-1">MO</th>
-                <th className="border border-gray-400 w-20 py-1">PC</th>
-                <th className="border border-gray-400 w-20 py-1">MO</th>
+                <th className="border border-gray-400 w-20 py-0.5">PC</th>
+                <th className="border border-gray-400 w-20 py-0.5">MO</th>
+                <th className="border border-gray-400 w-20 py-0.5">PC</th>
+                <th className="border border-gray-400 w-20 py-0.5">MO</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-400 text-left px-3 py-2 font-bold whitespace-nowrap"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">1</span> 전체 가입회원수_휴면회원포함 (명)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-bold whitespace-nowrap"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">1</span> 전체 가입회원수_휴면회원포함 (명)</td>
                 {table2Cols.map((path, i) => (
                   <ReportCell id={`t2-r1-c${i}`} key={i} value={getVal(path.replace(/\/\d+/g, '/1'))} isBold />
                 ))}
                 <ReportCell id="t2-r1-sub" value={subB1.value} className="bg-gray-50" isBold />
                 <ReportCell id="t2-r1-total" value={total1} className="bg-blue-50/50" isBold />
-                <td className="border border-gray-400 bg-blue-50/50"></td>
+                <td className="border border-gray-400 bg-blue-50/50 py-0.5"></td>
               </tr>
               <tr>
-                <td className="border border-gray-400 text-left px-3 py-2 font-bold whitespace-nowrap"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">2</span> 전체 가입유효회원수_휴면회원제외 (명)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-bold whitespace-nowrap"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">2</span> 전체 가입유효회원수_휴면회원제외 (명)</td>
                 {table2Cols.map((path, i) => (
                   <ReportCell id={`t2-r2-c${i}`} key={i} value={getVal(path.replace(/\/\d+/g, '/2'))} isBold />
                 ))}
                 <ReportCell id="t2-r2-sub" value={subB2.value} className="bg-gray-50" isBold />
                 <ReportCell id="t2-r2-total" value={total2} className="bg-blue-50/50" isBold />
-                <td className="border border-gray-400 bg-blue-50/50"></td>
+                <td className="border border-gray-400 bg-blue-50/50 py-0.5"></td>
               </tr>
-              <tr className="h-7 bg-green-50 font-bold">
-                <td className="border border-gray-400 text-left px-3 py-2 font-bold"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">3</span> 휴면 회원률 (%)</td>
+              <tr className="bg-green-50 font-bold">
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-bold"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">3</span> 휴면 회원률 (%)</td>
                 {table2Cols.map((path, i) => {
                   const v1 = getVal(path.replace(/\/\d+/g, '/1'));
                   const v2 = getVal(path.replace(/\/\d+/g, '/2'));
@@ -369,28 +369,28 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
                   isPercent 
                   className="bg-blue-100/30 text-gray-500 font-bold" 
                 />
-                <td className="border border-gray-400 bg-blue-100/30"></td>
+                <td className="border border-gray-400 bg-blue-100/30 py-0.5"></td>
               </tr>
               <tr>
-                <td className="border border-gray-400 text-left px-3 py-2 font-medium"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">4</span> 휴면계정 탈퇴회원수 (명)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-medium"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">4</span> 휴면계정 탈퇴회원수 (명)</td>
                 {table2Cols.map((path, i) => (
                   <ReportCell id={`t2-r4-c${i}`} key={i} value={getVal(path.replace(/\/\d+/g, '/3'))} />
                 ))}
                 <ReportCell id="t2-r4-sub" value={subB3.value} className="bg-gray-50" />
                 <ReportCell id="t2-r4-total" value={total3} className="bg-blue-50/50 font-bold" />
-                <td className="border border-gray-400 bg-blue-50/50"></td>
+                <td className="border border-gray-400 bg-blue-50/50 py-0.5"></td>
               </tr>
               <tr>
-                <td className="border border-gray-400 text-left px-3 py-2 font-medium"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">5</span> 본인 탈퇴회원수 (명)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-medium"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">5</span> 본인 탈퇴회원수 (명)</td>
                 {table2Cols.map((path, i) => (
                   <ReportCell id={`t2-r5-c${i}`} key={i} value={getVal(path.replace(/\/\d+/g, '/4'))} />
                 ))}
                 <ReportCell id="t2-r5-sub" value={subB4.value} className="bg-gray-50" />
                 <ReportCell id="t2-r5-total" value={total4} className="bg-blue-50/50 font-bold" />
-                <td className="border border-gray-400 bg-blue-50/50"></td>
+                <td className="border border-gray-400 bg-blue-50/50 py-0.5"></td>
               </tr>
-              <tr className="h-7">
-                <td className="border border-gray-400 text-left px-3 py-2 font-medium"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">6</span> 탈퇴율 (%)</td>
+              <tr>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-medium"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">6</span> 탈퇴율 (%)</td>
                 {table2Cols.map((path, i) => {
                   const v1 = getVal(path.replace(/\/\d+/g, '/1'));
                   const v3 = getVal(path.replace(/\/\d+/g, '/3'));
@@ -410,10 +410,10 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
                   isPercent 
                   className="bg-blue-50/50 text-gray-500 font-bold" 
                 />
-                <td className="border border-gray-400 bg-blue-50/50"></td>
+                <td className="border border-gray-400 bg-blue-50/50 py-0.5"></td>
               </tr>
-              <tr className="h-7">
-                <td className="border border-gray-400 text-left px-3 py-2 font-medium"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">7</span> 순수 이탈률 (%)</td>
+              <tr>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-medium"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">7</span> 순수 이탈률 (%)</td>
                 {table2Cols.map((path, i) => {
                   const v1 = getVal(path.replace(/\/\d+/g, '/1'));
                   const v3 = getVal(path.replace(/\/\d+/g, '/3'));
@@ -433,19 +433,19 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
                   isPercent 
                   className="bg-blue-50/50 text-gray-500 font-bold" 
                 />
-                <td className="border border-gray-400 bg-blue-50/50"></td>
+                <td className="border border-gray-400 bg-blue-50/50 py-0.5"></td>
               </tr>
               <tr className="bg-green-50 font-bold">
-                <td className="border border-gray-400 text-left px-3 py-2 font-bold"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">8</span> 신규 가입회원 수 (명)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 font-bold"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">8</span> 신규 가입회원 수 (명)</td>
                 {table2Cols.map((path, i) => (
                   <ReportCell id={`t2-r8-c${i}`} key={i} value={getVal(path.replace(/\/\d+/g, '/6'))} className="text-red-600" />
                 ))}
                 <ReportCell id="t2-r8-sub" value={subB6.value} className="text-red-600 bg-green-100/30" />
                 <ReportCell id="t2-r8-total" value={total6} className="text-red-600 bg-blue-100/30 font-bold" />
-                <td className="border border-gray-400 bg-blue-100/30"></td>
+                <td className="border border-gray-400 bg-blue-100/30 py-0.5"></td>
               </tr>
               <tr className="bg-green-50">
-                <td className="border border-gray-400 text-left px-3 py-2 whitespace-nowrap"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">9</span> 신규 가입률 (%)</td>
+                <td className="border border-gray-400 text-left px-3 py-0.5 whitespace-nowrap"><span className="inline-block w-3.5 h-3.5 bg-yellow-400 rounded-full text-[9px] text-center leading-[14px] font-bold mr-1.5 align-middle">9</span> 신규 가입률 (%)</td>
                 {table2Cols.map((path, i) => {
                   const v1 = getVal(path.replace(/\/\d+/g, '/1'));
                   const v6 = getVal(path.replace(/\/\d+/g, '/6'));
@@ -464,7 +464,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
                   isPercent 
                   className="bg-blue-100/30" 
                 />
-                <td className="border border-gray-400 bg-blue-100/30"></td>
+                <td className="border border-gray-400 bg-blue-100/30 py-0.5"></td>
               </tr>
             </tbody>
           </table>
