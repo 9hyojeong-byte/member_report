@@ -168,7 +168,7 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
         </div>
       </div>
 
-      <div className="print-container max-w-[1200px] mx-auto p-12 bg-white font-sans text-gray-900 shadow-2xl border border-gray-200 origin-top scale-[0.58] print:scale-58 print:transform-none mb-[-40%]">
+      <div className="print-container max-w-[1200px] mx-auto p-12 bg-white font-sans text-gray-900 shadow-2xl border border-gray-200 origin-top scale-[0.58] mb-[-40%] print:mb-0 print:shadow-none print:border-none">
         <div className="text-center mb-10">
           <h1 className="text-3xl font-black border-b-4 border-black inline-block pb-2 tracking-tight">사이트별 회원 현황 _ {yearMonth}</h1>
         </div>
