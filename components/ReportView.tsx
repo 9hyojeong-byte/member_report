@@ -470,13 +470,10 @@ const ReportView: React.FC<ReportViewProps> = ({ data, onBack }) => {
           </table>
         </div>
 
-        <div className="text-[10.5px] space-y-1.5 mb-8 text-gray-500 italic leading-snug">
+        <div className="text-[9.5px] space-y-1.5 mb-8 text-gray-500 italic leading-snug">
           <p>* 기타 : 서비스종료, 개편 이전, 헬로이티 등 기타 사이트 포함 집계 / <span className="text-red-600 font-bold">NE B&G 분리 집계(2022년 12월 2주차 적용)</span></p>
           <p>* 클래스카드를 통해 가입한 NE Tutor 통계, 2023년 8월 4주차 부터 반영</p>
-          <p>* ③(휴면 회원률) : (①-②)/①</p>
-          <p>* ⑥(탈퇴율) : (④+⑤)/(①+④+⑤)</p>
-          <p>* ⑦(순수이탈률) : ⑤/(①+④+⑤)</p>
-          <p>* ⑨(신규가입률) : ⑧/①</p>
+          <p>* ③(휴면 회원률) : (①-②)/① , ⑥(탈퇴율) : (④+⑤)/(①+④+⑤) , ⑦(순수이탈률) : ⑤/(①+④+⑤) , ⑨(신규가입률) : ⑧/①</p>
         </div>
 
       </div>
