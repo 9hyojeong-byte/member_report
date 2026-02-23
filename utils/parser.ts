@@ -14,11 +14,16 @@ export const parseTableData = (text: string): ParsedData => {
   let currentLineIndex = 0;
 
   // 1. Extract Metadata (Look for 조회기간)
+  // We search the entire text for a date range pattern following "조회기간"
+  const periodRegex = /조회기간[\s\S]{0,100}?(\d{4}[-.]\d{2}[-.]\d{2})[\s\S]{0,20}?[~-][\s\S]{0,20}?(\d{4}[-.]\d{2}[-.]\d{2})/;
+  const match = text.match(periodRegex);
+  if (match) {
+    result.metadata.period = `${match[1].replace(/\./g, '-')} ~ ${match[2].replace(/\./g, '-')}`;
+  }
+
+  // Find where the table starts to set currentLineIndex correctly
   while (currentLineIndex < lines.length) {
-    const line = lines[currentLineIndex].trim();
-    if (line.includes('조회기간')) {
-      result.metadata.period = line.split(':')[1]?.trim() || '';
-      currentLineIndex++;
+    if (lines[currentLineIndex].trim().startsWith('구분')) {
       break;
     }
     currentLineIndex++;

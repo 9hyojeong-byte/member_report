@@ -24,30 +24,27 @@
                 background-color: white !important;
                 padding: 0 !important;
                 margin: 0 !important;
-                width: 210mm;
-                height: 297mm;
+                width: 297mm; /* A4 Landscape width */
+                height: 210mm; /* A4 Landscape height */
             }
 
             /* Configure page margins */
             @page {
-                size: A4;
+                size: A4 landscape;
                 margin: 0;
             }
 
             /* Main report container styling for print */
             .print-container {
-                padding: 10mm !important; /* Reduced margin to maximize space */
+                padding: 8mm !important; /* Slightly reduced for landscape */
                 margin: 0 !important;
                 width: 100% !important;
                 max-width: none !important;
                 box-shadow: none !important;
                 border: none !important;
                 
-                /* Scaling to fit on one page:
-                   If your content is too long, adjust the scale value below.
-                   'zoom' works in Chrome/Safari, 'transform' is more standard but needs origin adjustment.
-                */
-                zoom: 0.9; /* Adjust this value (e.g., 0.85, 0.95) to fit your specific data on one page */
+                /* Scaling to fit on one page */
+                zoom: 0.95; /* Increased zoom for landscape as there is more horizontal space */
             }
 
             /* Prevent page breaks inside the report content */
