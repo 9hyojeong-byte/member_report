@@ -11,6 +11,28 @@
             .no-print {
                 display: none !important;
             }
+            body {
+                background-color: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .print-container {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                max-width: none !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            /* Remove outer padding from App/ReportView wrappers during print */
+            div.bg-gray-100.py-10 {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+                background-color: white !important;
+            }
+        }
+        @page {
+            margin: 15mm;
         }
     </style>
 <script type="importmap">
