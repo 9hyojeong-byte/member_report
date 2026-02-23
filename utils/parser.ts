@@ -14,26 +14,32 @@ export const parseTableData = (text: string): ParsedData => {
   let currentLineIndex = 0;
 
   // 1. Extract Metadata (Look for 조회기간)
-  const dateRegex = /(\d{4})[-.](\d{2})[-.](\d{2})/g;
-  const periodIndex = text.indexOf('조회기간');
-  
-  if (periodIndex !== -1) {
-    // Look for dates in a window after "조회기간"
-    const searchArea = text.substring(periodIndex, periodIndex + 300);
-    const dates: string[] = [];
-    let dateMatch;
-    
-    while ((dateMatch = dateRegex.exec(searchArea)) !== null && dates.length < 2) {
-      const [_, y, m, d] = dateMatch;
-      // Normalize to YYYY-MM-DD
-      dates.push(`${y}-${m}-${d}`);
+  while (currentLineIndex < lines.length) {
+    const line = lines[currentLineIndex].trim();
+    if (line.includes('조회기간')) {
+      const dateRegex = /\d{4}-\d{2}-\d{2}/g;
+      let foundDates: string[] = [];
+      
+      // Try to find dates in current and next few lines
+      for (let j = 0; j < 6 && (currentLineIndex + j) < lines.length; j++) {
+        const searchLine = lines[currentLineIndex + j].trim();
+        if (j > 0 && searchLine.startsWith('구분')) break;
+        const matches = searchLine.match(dateRegex);
+        if (matches) foundDates.push(...matches);
+        if (foundDates.length >= 2) break;
+      }
+      
+      if (foundDates.length >= 2) {
+        result.metadata.period = `${foundDates[0]} ~ ${foundDates[1]}`;
+      } else if (foundDates.length === 1) {
+        result.metadata.period = foundDates[0];
+      } else {
+        result.metadata.period = line.split(':')[1]?.trim() || '';
+      }
+      currentLineIndex++;
+      break;
     }
-    
-    if (dates.length === 2) {
-      result.metadata.period = `${dates[0]} ~ ${dates[1]}`;
-    } else if (dates.length === 1) {
-      result.metadata.period = dates[0];
-    }
+    currentLineIndex++;
   }
 
   // 2. Find and Parse Header Line (Handles cases where headers have newlines)

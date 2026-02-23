@@ -8,67 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @media print {
-            /* Hide UI elements */
             .no-print {
                 display: none !important;
             }
-
-            /* Preserve colors and backgrounds */
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-
-            /* Reset body for print */
-            body {
-                background-color: white !important;
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-
-            /* Configure page margins */
-            @page {
-                margin: 0;
-            }
-
-            /* Main report container styling for print */
-            .print-container {
-                padding: 8mm !important; /* Slightly reduced for landscape */
-                margin: 0 !important;
-                max-width: none !important;
-                box-shadow: none !important;
-                border: none !important;
-                
-                /* Scaling to fit on one page */
-                zoom: 1; /* Increased zoom for landscape as there is more horizontal space */
-            }
-
-            /* Prevent page breaks inside the report content */
-            .print-container > * {
-                page-break-inside: avoid;
-            }
-
-            /* Ensure tables fit width and look professional */
-            table {
-                width: 100% !important;
-                table-layout: fixed;
-                border-collapse: collapse !important;
-            }
-            
-            th, td {
-                border: 0.5pt solid #999 !important;
-            }
-            
-            /* Adjust font sizes for print clarity and space saving */
-            h1 { font-size: 20pt !important; margin-bottom: 5mm !important; }
-            .text-sm { font-size: 8.5pt !important; }
-            .text-xs { font-size: 7.5pt !important; }
-            
-            /* Remove extra spacing that might cause overflow */
-            .mb-10 { margin-bottom: 5mm !important; }
-            .mb-8 { margin-bottom: 4mm !important; }
-            .mb-6 { margin-bottom: 3mm !important; }
-            .py-10 { padding-top: 0 !important; padding-bottom: 0 !important; }
         }
     </style>
 <script type="importmap">
